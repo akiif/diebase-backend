@@ -1,0 +1,31 @@
+{
+  "name": "diebase-backend",
+  "version": "1.0.0",
+  "description": "Backend APIs for DieBase Application.",
+  "main": "src/server.js",
+  "author": "Akif Mohammed <akiif.dev@gmail.com> (https://akiif.dev)",
+  "license": "MIT",
+  "scripts": {
+    "install_deps": "NODE_ENV='development' yarn",
+    "start": "node --env-file=.env src/server.js",
+    "dev": "nodemon --env-file=.env src/server.js",
+    "init_db": "node --env-file=.env src/utils/database.util.js"
+  },
+  "_moduleAliases": {
+    "@": "./src"
+  },
+  "dependencies": {
+    "chalk": "^5.6.2",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "helmet": "^8.1.0",
+    "module-alias": "^2.3.4",
+    "mongoose": "^9.2.1",
+    "morgan": "^1.10.1",
+    "rate-limiter-flexible": "^9.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+  
+}
