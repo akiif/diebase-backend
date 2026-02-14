@@ -8,6 +8,9 @@ const { colorLogger } = require("./utils/log.util");
 
 const app = express();
 
+// import routes
+const dieCastBrandRoutes = require("@/routes/diecastBrands.api");
+
 // Middleware to log request response metadata
 app.use(morgan("common"));
 
@@ -26,6 +29,9 @@ app.use(
     crossOriginEmbedderPolicy: false,
   })
 );
+
+// configure routes
+app.use("/diebase-api", dieCastBrandRoutes);
 
 const port = process.env.DIEBASE_BACKEND_PORT || 8868;
 
