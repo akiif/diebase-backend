@@ -8,7 +8,7 @@ DiecastBrandService.addNewDiecastBrandEntryIntoDB = async (diecast_brand) => {
     const dbResponse = await dieCastBrandItem.save();
 
     if (dbResponse) {
-      const responseMessage = `Successfully created new DieCase Brand with name ${diecast_brand?.name} and doc _id ${diecast_brand?._id}`;
+      const responseMessage = `Successfully created new DieCase Brand with name ${dbResponse?.name} and doc _id ${dbResponse?._id}`;
       console.log(`[${new Date().toISOString()}] Info: ${responseMessage}.`);
 
       return {
