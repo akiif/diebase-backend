@@ -15,4 +15,16 @@ router.post(
   DieCastBrandsController.addNewDieCastBrand
 );
 
+
+/**
+ * @route POST /diebase-api/diecast-brands/search
+ * @description api to search for a new diecast brand or list all brands
+ * @access Private
+ */
+router.post(
+  "/diecast-brands/search",
+  validateMiddleware.validateApiKey,
+  DieCastBrandsController.searchDieCastBrand
+);
+
 module.exports = router;

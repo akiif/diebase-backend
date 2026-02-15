@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - feat(init): Initialized new express app with mongodb connection.
 - feat(db): Created mongoose models for the diecast collections.
 - feat(diecast-brands): Created new api to insert diecast brands.
+- feat(diecast-brands): Created new api to search for the diecast brands in the db.
 
 ### Fixed
 

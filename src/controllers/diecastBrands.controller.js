@@ -47,4 +47,38 @@ DieCastBrandsController.addNewDieCastBrand = async (req, res) => {
   }
 };
 
+DieCastBrandsController.searchDieCastBrand = async (req, res) => {
+  try {
+    const diecast_brand = req.body;
+
+    const diecastBrandAddResponse =
+      await DiecastBrandService.searchForDieCastBrandInTheDB(diecast_brand);
+
+    if (diecastBrandAddResponse.error) {
+      const errorCode = diecastBrandAddResponse?.errorCode
+        ? diecastBrandAddResponse?.errorCode
+        : 400;
+      return res.status(errorCode).json({
+        success: false,
+        message: diecastBrandAddResponse.message,
+        data: null,
+      });
+    } else {
+      return res.status(200).json({
+        success: true,
+        message: diecastBrandAddResponse.message,
+        data: diecastBrandAddResponse.data,
+      });
+    }
+  } catch (error) {
+    const errorMessage = `Error: Error while searching for the diecast brands for the given query!`;
+    console.error(`[${new Date().toISOString()}] ${errorMessage}`);
+    return res.status(500).json({
+      success: false,
+      message: errorMessage,
+      data: null,
+    });
+  }
+};
+
 module.exports = DieCastBrandsController;
