@@ -19,6 +19,7 @@ const vehicleBrandsSchema = new mongoose.Schema(
       type: String,
     },
     website: String,
+    logo_link: String,
   },
   {
     timestamps: true,
