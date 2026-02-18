@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - feat(diecast-brands): Created new api to search for the diecast brands in the db.
 - feat(vehicle-brands): Created new api to insert and search for the vehicle brands in the db.
 - feat(sub-diecast-brands): Created new api to insert and search for the sub-diecast brands in the db.
+- feat(sub-diecast-brands): Added validations check to see if the parent_brand id provided is present in the database.
 
 ### Fixed
 

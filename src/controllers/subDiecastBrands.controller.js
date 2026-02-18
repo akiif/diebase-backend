@@ -1,12 +1,13 @@
+const DiecastBrandService = require("@/services/diecastBrands.service");
 const SubDiecastBrandService = require("@/services/subDiecastBrands.service");
 
 const SubDieCastBrandsController = {};
 
 SubDieCastBrandsController.addNewSubDieCastBrand = async (req, res) => {
   try {
-    const diecast_brand = req.body;
+    const sub_diecast_brand = req.body;
 
-    if (!diecast_brand?.name || diecast_brand?.name === "") {
+    if (!sub_diecast_brand?.name || sub_diecast_brand?.name === "") {
       const errorMessage = `Error: No sub diecast brand name provided!`;
       console.log(`[${new Date().toISOString()}] ${errorMessage}`);
 
@@ -17,8 +18,21 @@ SubDieCastBrandsController.addNewSubDieCastBrand = async (req, res) => {
       });
     }
 
+    const diecastBrandSearchResponse =
+      await DiecastBrandService.searchForDieCastBrandInTheDB({
+        diecast_brand_id: sub_diecast_brand?.parent_brand,
+      });
+
+    if (diecastBrandSearchResponse.error) {
+      return res.status(diecastBrandSearchResponse?.errorCode ?? 400).json({
+        success: false,
+        message: diecastBrandSearchResponse?.message,
+        data: null,
+      });
+    }
+
     const subDiecastBrandAddResponse =
-      await SubDiecastBrandService.addNewSubDiecastBrandEntryIntoDB(diecast_brand);
+      await SubDiecastBrandService.addNewSubDiecastBrandEntryIntoDB(sub_diecast_brand);
 
     if (subDiecastBrandAddResponse.error) {
       const errorCode = subDiecastBrandAddResponse?.errorCode
