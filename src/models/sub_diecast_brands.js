@@ -14,8 +14,9 @@ const SubDieCastBrandSchema = new mongoose.Schema(
       required: true,
     },
     website: String,
+    logo_url: String,
   },
   { timestamps: true }
 );
 
-model.exports = mongoose.model("sub_diecast_brands", SubDieCastBrandSchema);
+module.exports = mongoose.model("sub_diecast_brands", SubDieCastBrandSchema);

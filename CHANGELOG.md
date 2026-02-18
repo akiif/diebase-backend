@@ -13,7 +13,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - feat(db): Created mongoose models for the diecast collections.
 - feat(diecast-brands): Created new api to insert diecast brands.
 - feat(diecast-brands): Created new api to search for the diecast brands in the db.
-- feat(vehicle-brands): Created new api to insert and search for the diecast brands in the db.
+- feat(vehicle-brands): Created new api to insert and search for the vehicle brands in the db.
+- feat(sub-diecast-brands): Created new api to insert and search for the sub-diecast brands in the db.
 
 ### Fixed
 

@@ -10,6 +10,7 @@ const app = express();
 
 // import routes
 const dieCastBrandRoutes = require("@/routes/diecastBrands.api");
+const subDiecastBrandRoutes = require("@/routes/subDiecastBrands.api");
 const vehicleBrandRoutes = require("@/routes/vehicleBrands.api");
 
 // Middleware to log request response metadata
@@ -33,6 +34,7 @@ app.use(
 
 // configure routes
 app.use("/diebase-api", dieCastBrandRoutes);
+app.use("/diebase-api", subDiecastBrandRoutes);
 app.use("/diebase-api", vehicleBrandRoutes);
 
 const port = process.env.DIEBASE_BACKEND_PORT || 8868;
